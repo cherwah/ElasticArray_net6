@@ -38,7 +38,7 @@ class CommandLine
     }
   }
 
-  public void AddInteger()
+  protected void AddInteger()
   {
     int? val = Program.GetIntegerInput("\nENTER INTEGER TO ADD: ");
 
@@ -53,7 +53,7 @@ class CommandLine
     }
   }
 
-  public void RemoveInteger()
+  protected void RemoveInteger()
   {
     int? val = Program.GetIntegerInput("\nENTER INTEGER TO REMOVE: ");
 
@@ -74,7 +74,7 @@ class CommandLine
     }
   }
 
-  public void RemoveIntegerAtPos()
+  protected void RemoveIntegerAtPos()
   {
     int? val = Program.GetIntegerInput("\nENTER POSITION (ZERO-BASED): ");
 
@@ -95,7 +95,7 @@ class CommandLine
     }
   }
 
-  public void FindInteger()
+  protected void FindInteger()
   {
     int? val = Program.GetIntegerInput("\nENTER INTEGER TO FIND: ");
 
@@ -119,13 +119,13 @@ class CommandLine
     }
   }
 
-  public void ShowListSize()
+  protected void ShowListSize()
   {
     Console.WriteLine(String.Format(
         ">>> TOTAL COUNT: {0}. <<<", elastic_arr.GetLength()));
   }
 
-  public void ShowContent()
+  protected void ShowContent()
   {
     if (elastic_arr.GetLength() == 0)
     {
@@ -138,7 +138,7 @@ class CommandLine
     }
   }
 
-  public void OnMenuSelect(int choice)
+  protected void OnMenuSelect(int choice)
   {
     switch (choice)
     {
