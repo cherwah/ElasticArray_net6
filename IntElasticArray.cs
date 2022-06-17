@@ -14,6 +14,8 @@ class IntElasticArray
 
   public void Add(int val)
   {
+    // arr.Length is the size of array (no. of elements it can take)
+    // num_elems is the no. of elements currently in the array
     if (num_elems == arr.Length)
     {
       Grow(arr.Length * 2);
