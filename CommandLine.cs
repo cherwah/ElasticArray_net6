@@ -22,7 +22,7 @@ class CommandLine
           "6. SHOW CONTENT\n\n" +
           "PLEASE CHOOSE ONE: ";
 
-      int? choice = Program.GetIntegerInput(prompt);
+      int? choice = GetInput(prompt);
 
       if (choice != null)
       {
@@ -38,9 +38,31 @@ class CommandLine
     }
   }
 
+  public int? GetInput(string prompt)
+  {
+    int? choice = null;
+
+    Console.Write(prompt);
+    string? input = Console.ReadLine();
+
+    if (input != null)
+    {
+      try
+      {
+        choice = int.Parse(input);
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine(">>> PLEASE PROVIDE NUMBER INPUTS. <<<");
+      }
+    }
+
+    return choice;
+  }
+
   protected void AddInteger()
   {
-    int? val = Program.GetIntegerInput("\nENTER INTEGER TO ADD: ");
+    int? val = GetInput("\nENTER INTEGER TO ADD: ");
 
     if (val == null)
     {
@@ -55,7 +77,7 @@ class CommandLine
 
   protected void RemoveInteger()
   {
-    int? val = Program.GetIntegerInput("\nENTER INTEGER TO REMOVE: ");
+    int? val = GetInput("\nENTER INTEGER TO REMOVE: ");
 
     if (val == null)
     {
@@ -76,7 +98,7 @@ class CommandLine
 
   protected void RemoveIntegerAtPos()
   {
-    int? val = Program.GetIntegerInput("\nENTER POSITION (ZERO-BASED): ");
+    int? val = GetInput("\nENTER POSITION (ZERO-BASED): ");
 
     if (val == null)
     {
@@ -97,7 +119,7 @@ class CommandLine
 
   protected void FindInteger()
   {
-    int? val = Program.GetIntegerInput("\nENTER INTEGER TO FIND: ");
+    int? val = GetInput("\nENTER INTEGER TO FIND: ");
 
     if (val == null)
     {
