@@ -2,13 +2,12 @@ namespace ElasticArray;
 
 class IntElasticArray
 {
-  public const int INIT_SZ = 5;
   private int num_elems;
-  private int[] arr;
+  private int?[] arr;
 
   public IntElasticArray()
   {
-    arr = new int[INIT_SZ]; // will grow on demand
+    arr = new int?[3]; // will grow on demand
     num_elems = 0;  // no elements in our array at the start           
   }
 
@@ -86,7 +85,7 @@ class IntElasticArray
 
   protected void Grow(int new_size)
   {
-    int[] new_arr = new int[new_size];
+    int?[] new_arr = new int?[new_size];
 
     // copy contents of old array into new array
     for (int i = 0; i < num_elems; i++)
@@ -100,11 +99,19 @@ class IntElasticArray
 
   protected void ShiftLeftFrom(int pos, int n)
   {
+    int i = 0;
+
     // shift all elements up by one position;
     // starting at a specific position in the array
-    for (int i = pos; i < n; i++)
+    for (i = pos; i < n; i++)
     {
       arr[i] = arr[i + 1];
+    }
+
+    // clear last "shifted" value
+    if (i < arr.Length) 
+    {
+      arr[i] = null;
     }
   }
 }
